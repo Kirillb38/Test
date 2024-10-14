@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n, a;
+    int days;
+
+    cout << "Введіть номер місяця (1-12): ";
+    cin >> n;
+    cout << "Введіть 1 для високосного року або 0 для невисокосного року: ";
+    cin >> a;
+
+    switch (n) {
+        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+            days = 31;
+            break;
+        case 4: case 6: case 9: case 11:
+            days = 30;
+            break;
+        case 2:
+            if (a == 1) {
+                days = 29; // Високосний рік
+            } else {
+                days = 28; // Невисокосний рік
+            }
+            break;
+        default:
+            cout << "Помилка: неправильний номер місяця!" << endl;
+            return 1;
+    }
+
+    cout << "Кількість днів у місяці: " << days << endl;
+
+    return 0;
+}
